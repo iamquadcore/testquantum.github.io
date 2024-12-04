@@ -1,8 +1,8 @@
-title: Hexo
+title: Quantum Test Web Site
 subtitle: ''
 description: ''
 keywords: null
-author: John Doe
+author: Quantum Core
 language: en
 timezone: ''
 url: https://iamquadcore.github.io/testquantum.github.io/
@@ -58,7 +58,7 @@ pagination_dir: page
 include: null
 exclude: null
 ignore: null
-theme: landscape
+theme: hexo-theme-async
 deploy:
   type: git
   repo: https://github.com/iamquadcore/testquantum.github.io

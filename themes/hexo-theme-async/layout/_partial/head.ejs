@@ -1,0 +1,104 @@
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="x5-fullscreen" content="true">
+<meta name="full-screen" content="yes">
+<meta name="theme-color" content="#317EFB" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0" name="viewport">
+
+<%
+let ogImage = '';
+function isAbsoluteUrl(url) {
+  return /^https?:\/\//i.test(url);
+}
+// 明示的に404.jpgを除外する処理を追加
+function isValid404Image(url) {
+  return !url.includes('404.jpg');
+}
+if (page.og_image && isValid404Image(page.og_image)) {
+  // 記事固有の画像が設定されている場合
+  if (isAbsoluteUrl(page.og_image)) {
+    ogImage = page.og_image;
+  } else {
+    ogImage = config.url + (page.og_image.startsWith('/') ? page.og_image : '/' + page.og_image);
+  }
+} else if (config.og_image && isValid404Image(config.og_image)) {
+  // サイト全体のデフォルトOGP画像
+  ogImage = config.url + (config.og_image.startsWith('/') ? config.og_image : '/' + config.og_image);
+}
+%>
+<% if (ogImage) { %>
+<meta property="og:image" content="<%= ogImage %>">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="<%= ogImage %>">
+<% } %>
+
+<%- theme.open_graph ? open_graph() : ''%>
+<% if(page.keywords){%>
+    <meta name="keywords" content="<%= page.keywords %>">
+<%}else if(config.keywords){%>
+    <meta name="keywords" content="<%= config.keywords %>">
+<%}%>
+
+<%- tag("title", !!page.title ? page.title : config.title) %>
+
+<!-- Favicon -->
+<% if(theme.favicon.icon16){%>
+    <%- tag("link", {
+        href: url_for(theme.favicon.icon16) +'?v='+ theme.version,
+        rel: "icon",
+        type: "image/png",
+        sizes: "16x16"
+    }) %>
+<%}%>
+<% if(theme.favicon.icon32){%>
+    <%- tag("link", {
+        href: url_for(theme.favicon.icon32) +'?v='+ theme.version, 
+        rel: "icon",
+        type: "image/png",
+        sizes: "32x32"
+    }) %>
+<%}%>
+<% if(theme.favicon.appleTouchIcon || theme.favicon.apple_touch_icon){%>
+    <%- tag("link", {
+        href: url_for(theme.favicon.appleTouchIcon || theme.favicon.apple_touch_icon) +'?v='+ theme.version,
+        rel: "apple-touch-icon",
+        sizes: "180x180"
+    }) %>
+<%}%>
+<% if(theme.favicon.webmanifest){%>
+    <%- tag("link", {
+        href: url_for(theme.favicon.webmanifest),
+        rel: "manifest"
+    }) %>
+<%}%>
+
+<!-- Plugin -->
+<%- partial('../_third-party/plugin',{ loadtype: 'css' }) %>
+
+<!-- Icon -->
+<% if(theme.assets.icons.css) { %>
+    <%- css(theme.assets.icons.css) %>
+<% } %>
+<% if(theme.assets.icons.js) { %>
+    <%- js(theme.assets.icons.js) %>
+<% } %>
+
+<!-- Variable -->
+<%- async_config() %>
+<%- page_config() %>
+
+<!-- Theme mode css -->
+<link data-swup-theme rel="stylesheet" href="<%= url_for('css/index.css') %>?v=<%= theme.version %>" id="trm-switch-style">
+<script>
+    let defaultMode = ASYNC_CONFIG.theme.default !=='auto' ?  ASYNC_CONFIG.theme.default : (window.matchMedia("(prefers-color-scheme: light)").matches ? 'style-light' : 'style-dark')
+    let catchMode = localStorage.getItem('theme-mode') || defaultMode;
+    let type = catchMode === 'style-dark' ? 'add' : 'remove';
+    document.documentElement.classList[type]('dark')
+</script>
+
+<!-- CDN -->
+<%- partial('../_third-party/cdn',{ cdntype: 'head' }) %>
+
+<!-- Site Analytics -->
+<%- partial(theme.layout.analytics) %>
