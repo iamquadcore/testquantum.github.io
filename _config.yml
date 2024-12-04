@@ -58,6 +58,8 @@ pagination_dir: page
 include: null
 exclude: null
 ignore: null
-theme: async-q-fork
+theme: landscape
 deploy:
-  type: ''
+  type: git
+  repo: https://github.com/iamquadcore/testquantum.github.io
+  branch: gh-pages

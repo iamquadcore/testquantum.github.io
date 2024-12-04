@@ -1,0 +1,144 @@
+language: english
+user:
+    name: かじ/Quadro
+    first_name: Graphics
+    last_name: Quadro
+    avatar: img/mainimages/ogkaji.png
+
+banner:
+    index:
+        type: slideshow
+        bgurl:
+          - img/mainimages/pose.png
+          - img/mainimages/good bye to a world small.png
+          - img/mainimages/sleeping.png
+          - img/mainimages/flowerpots.jpg
+        bannerTitle: かじ/Quadroのぼんやりつぶやき
+        bannerText: Kaji/Quadro's Blog
+    archive:
+        bgurl: img/mainimages/archivesimage.jpg
+        bannerTitle: アーカイブ/カテゴリー/タグ
+        bannerText: Archives/Categories/Tags
+    comment:
+        bannerTitle: NONE
+        bannerText: 
+    about:
+        bannerTitle: About
+        bannerText: 
+    links:
+        bannerTitle: Links
+        bannerText:
+sidebar:
+    position: left
+    display: always
+    typedTextPrefix: ぬ
+    typedText: ["ーーーーーーーーーーーーーん"]
+    social: # Social Address
+        - name: NONE
+          icon:
+          url:
+        - name: Twitter(Main)
+          icon: fab fa-twitter-square
+          url: https://twitter.com/kaji1375
+        - name: Twitter(Quadro)
+          icon: fab fa-twitter-square
+          url: https://twitter.com/quadrographics
+        - name: YouTube(Films)
+          icon: fab fa-youtube
+          url: https://www.youtube.com/channel/UCFAe-swQumm28GbWaP2PkdA
+        - name: YouTube(Gaming)
+          icon: fab fa-youtube
+          url: https://www.youtube.com/@kaji-fps/featured
+    info:
+      - key: Profile
+        val: QuadroGraphics<br>2014-2024
+
+top_bars:
+    - title: Home
+      url: /
+      children:
+          - title: Categories
+            url: /categories/
+          - title: Tags
+            url: /tags/
+          - title: Archives
+            url: /archives/
+    - title: CG Topics
+      url:
+      children:
+        - title: Blender
+          url: /tags/Blender/
+        - title: Unreal Engine 5
+          url: /tags/UE5/
+        - title: Unity
+          url: /tags/Unity/
+        - title: CG Chat
+          url: /tags/CG-Chat/
+    - title: VFX Topics
+      url:
+      children:
+        - title: After Effects
+          url: /tags/After-Effects/
+    - title: Chat
+      url: /categories/Chat/
+    - title: About
+      url: /about/
+    - title: Contact(JP)
+      url: https://docs.google.com/forms/d/1iN4s0dyYvDO9aPwdZqrq4vX7d7EIKeiHJSvAN-JBWVQ/viewform?edit_requested=true
+
+layout:
+    footer: async/footer
+    sidebar: _partial/sidebar/index
+
+theme:
+  switch: true
+  default: style-dark
+
+favicon:
+    logo: img/mainimages/blogicon_v2.ico
+    icon16: img/mainimages/blogicon_v2.ico
+    icon32: img/mainimages/blogicon_v2.ico
+    appleTouchIcon: img/mainimages/blogicon.ico
+    webmanifest: 
+    visibilitychange: false
+    hidden: 
+    showText: 
+    hideText: 
+
+wordcount:
+    enable: false
+    count: true
+    time: true
+
+webAnalytics:  
+  enable: enable
+  google: G-ZGS8JKCRPJ
+
+toc:
+    enable: false
+    list_number: true
+    max_depth: 3
+    min_depth: 1
+
+about:
+  title: About/概要
+  introduction: 
+  blog: 
+  privacy: 
+
+highlight:
+    theme: false
+    title: default
+    copy: true
+    lang: true
+    code_word_wrap: fasle
+    height_limit: 200
+
+open_graph:
+  enable: true
+  options:
+    type: website
+    twitter_card: summary_large_image
+    twitter_id:
+    fb_admins:
+    fb_app_id:  
