@@ -111,8 +111,8 @@ wordcount:
     time: true
 
 webAnalytics:  
-  enable: enable
-  google: G-ZGS8JKCRPJ
+  enable: false
+  google:
 
 toc:
     enable: false

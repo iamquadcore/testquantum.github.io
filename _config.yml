@@ -61,5 +61,5 @@ ignore: null
 theme: hexo-theme-async
 deploy:
   type: git
-  repo: https://github.com/iamquadcore/testquantum.github.io
+  repo: git@github.com:iamquadcore/testquantum.github.io.git
   branch: gh-pages
