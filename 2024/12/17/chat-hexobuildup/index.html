@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="x5-fullscreen" content="true">
+<meta name="full-screen" content="yes">
+<meta name="theme-color" content="#317EFB" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0" name="viewport">
+
+
+
+
+<meta name="description" content="まえがき最近、実験目的で新しくテスト用のサイトを立てたので、それを機に改めて「Hexoの環境構築手順を残しておこう」という感じで今回の記事に至りました。　今回は、Windows 11での環境構築からHexoによる静的ウェブサイトの構築と公開まで、なるべく初心に帰って説明していきたいと思います。前編では登場するツールや用語の簡単な説明とインストール、後編では組み立ての説明をしていきたいと思っています">
+<meta property="og:type" content="article">
+<meta property="og:title" content="テスト記事 | 実験">
+<meta property="og:url" content="https://iamquadcore.github.io/testquantum.github.io/2024/12/17/chat-hexobuildup/index.html">
+<meta property="og:site_name" content="Quantum Test Web Site">
+<meta property="og:description" content="まえがき最近、実験目的で新しくテスト用のサイトを立てたので、それを機に改めて「Hexoの環境構築手順を残しておこう」という感じで今回の記事に至りました。　今回は、Windows 11での環境構築からHexoによる静的ウェブサイトの構築と公開まで、なるべく初心に帰って説明していきたいと思います。前編では登場するツールや用語の簡単な説明とインストール、後編では組み立ての説明をしていきたいと思っています">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://iamquadcore.github.io/testquantum.github.io/img/404.jpg">
+<meta property="og:image" content="https://iamquadcore.github.io/testquantum.github.io/img/404.jpg">
+<meta property="og:image" content="https://iamquadcore.github.io/testquantum.github.io/img/404.jpg">
+<meta property="og:image" content="https://iamquadcore.github.io/testquantum.github.io/img/404.jpg">
+<meta property="og:image" content="https://iamquadcore.github.io/testquantum.github.io/img/404.jpg">
+<meta property="og:image" content="https://iamquadcore.github.io/testquantum.github.io/img/404.jpg">
+<meta property="og:image" content="https://iamquadcore.github.io/testquantum.github.io/img/404.jpg">
+<meta property="og:image" content="https://iamquadcore.github.io/testquantum.github.io/img/404.jpg">
+<meta property="og:image" content="https://iamquadcore.github.io/testquantum.github.io/img/404.jpg">
+<meta property="og:image" content="https://iamquadcore.github.io/testquantum.github.io/img/404.jpg">
+<meta property="og:image" content="https://iamquadcore.github.io/testquantum.github.io/img/404.jpg">
+<meta property="og:image" content="https://iamquadcore.github.io/testquantum.github.io/img/404.jpg">
+<meta property="og:image" content="https://iamquadcore.github.io/testquantum.github.io/img/404.jpg">
+<meta property="og:image" content="https://iamquadcore.github.io/testquantum.github.io/img/404.jpg">
+<meta property="og:image" content="https://iamquadcore.github.io/testquantum.github.io/img/404.jpg">
+<meta property="og:image" content="https://iamquadcore.github.io/testquantum.github.io/img/404.jpg">
+<meta property="article:published_time" content="2024-12-16T15:00:00.000Z">
+<meta property="article:modified_time" content="2024-12-20T10:50:31.619Z">
+<meta property="article:author" content="Quantum Core">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://iamquadcore.github.io/testquantum.github.io/img/404.jpg">
+
+
+<title >テスト記事 | 実験</title><meta name="robots" content="noindex">
+
+<!-- Favicon -->
+
+    <link href='/testquantum.github.io/img/favicon.svg?v=2.2.4' rel='icon' type='image/png' sizes='16x16' ></link>
+
+
+    <link href='/testquantum.github.io/img/favicon.svg?v=2.2.4' rel='icon' type='image/png' sizes='32x32' ></link>
+
+
+
+
+<!-- Plugin -->
+
+
+
+
+    
+<link rel="stylesheet" href="/testquantum.github.io/css/plugins/bootstrap.row.css">
+
+    
+<link rel="stylesheet" href="https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.css">
+
+    
+    
+
+
+
+
+<!-- Icon -->
+
+    
+<link rel="stylesheet" href="/testquantum.github.io/css/plugins/font-awesome.min.css">
+
+
+
+
+<!-- Variable -->
+<script>window.ASYNC_CONFIG = {"hostname":"iamquadcore.github.io","author":"Quantum Core","root":"/testquantum.github.io/","typed_text":null,"theme_version":"2.2.4","theme":{"switch":true,"default":"style-light"},"favicon":{"logo":"/img/favicon.svg","icon16":"/img/favicon.svg","icon32":"/img/favicon.svg","apple_touch_icon":null,"webmanifest":null,"visibilitychange":false,"hidden":"/failure.ico","show_text":"(/≧▽≦/)Hey! Good again!","hide_text":"(●—●)Oh, crash!"},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}.","hits":"${hits} results found","hits_time":"${hits} results found in ${time} ms","author":"Post author: ","copyright_link":"Post link: ","copyright_license_title":"Copyright Notice: ","copyright_license_content":"All articles in this blog are licensed under undefined unless otherwise stated.","copy_success":"Copied","copy_failure":"Copy failed","open_read_mode":"Enter reading mode","exit_read_mode":"Exit reading mode","notice_outdate_message":"It has been undefined days since the last update, the content of the article may be outdated.","sticky":"TOP","just":"Just","min":"minutes ago","hour":"hours ago","day":"days ago","month":"months ago"},"swup":false,"plugin":{"flickr_justified_gallery":"https://unpkg.com/flickr-justified-gallery@latest/dist/fjGallery.min.js"},"icons":{"sun":"far fa-sun","moon":"far fa-moon","play":"fas fa-play","email":"far fa-envelope","next":"fas fa-arrow-right","calendar":"far fa-calendar-alt","clock":"far fa-clock","user":"far fa-user","back_top":"fas fa-arrow-up","close":"fas fa-times","search":"fas fa-search","reward":"fas fa-hand-holding-usd","toc_tag":"fas fa-th-list","read":"fas fa-book-reader","arrows":"fas fa-arrows-alt-h","double_arrows":"fas fa-angle-double-down","copy":"fas fa-copy"},"icontype":"font","highlight":{"plugin":"highlighjs","theme":true,"copy":true,"lang":true,"title":"default","height_limit":false},"toc":{"post_title":true},"live_time":{"start_time":"","prefix":"The blog has been lovely to run undefined day"},"danmu":{"enable":false,"el":".trm-banner"}};</script>
+<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2024-12-20 19:50:31"};</script>
+
+<!-- Theme mode css -->
+<link data-swup-theme rel="stylesheet" href="/testquantum.github.io/css/index.css?v=2.2.4" id="trm-switch-style">
+<script>
+    let defaultMode = ASYNC_CONFIG.theme.default !=='auto' ?  ASYNC_CONFIG.theme.default : (window.matchMedia("(prefers-color-scheme: light)").matches ? 'style-light' : 'style-dark')
+    let catchMode = localStorage.getItem('theme-mode') || defaultMode;
+    let type = catchMode === 'style-dark' ? 'add' : 'remove';
+    document.documentElement.classList[type]('dark')
+</script>
+
+<!-- CDN -->
+
+
+    
+    
+
+
+
+<!-- Site Analytics -->
+
+ 
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+
+  <!-- app wrapper -->
+  <div class="trm-app-frame">
+
+    <!-- page preloader -->
+    <div class="trm-preloader">
+    <div class="trm-holder">
+        <div class="preloader">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+</div>
+    <!-- page preloader end -->
+
+    <!-- change mode preloader -->
+    <div class="trm-mode-swich-animation-frame">
+    <div class="trm-mode-swich-animation">
+        <i class="i-sun"><i class="iconfont far fa-sun"></i></i>
+        <div class="trm-horizon"></div>
+        <i class="i-moon"><i class="iconfont far fa-moon"></i></i>
+    </div>
+</div>
+    <!-- change mode preloader end -->
+
+      <!-- scroll container -->
+      <div id="trm-dynamic-content" class="trm-swup-animation">
+        <div id="trm-scroll-container" class="trm-scroll-container" style="opacity: 0">
+            <!-- top bar -->
+            <header class="trm-top-bar">
+	<div class="container">
+		<div class="trm-left-side">
+			<!-- logo -->
+<a href="/testquantum.github.io/" class="trm-logo-frame trm-anima-link">
+    
+        <img alt="logo" src="/testquantum.github.io/img/favicon.svg">
+    
+    
+        <div class="trm-logo-text">
+            Async<span>Theme</span>
+        </div>
+    
+</a>
+<!-- logo end -->
+		</div>
+		<div class="trm-right-side">
+			<!-- menu -->
+<div class="trm-menu">
+    <nav>
+        <ul>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/testquantum.github.io/" target="">
+                    Home
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/testquantum.github.io/archives/" target="">
+                    Archives
+                </a>
+                
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+<!-- menu end -->
+			
+    <!-- mode switcher place -->
+    <div class="trm-mode-switcher-place">
+        <div class="trm-mode-switcher">
+            <i class="iconfont far fa-sun"></i>
+            <input class="tgl tgl-light" id="trm-swich" type="checkbox">
+            <label class="trm-swich" for="trm-swich"></label>
+            <i class="iconfont far fa-moon"></i>
+        </div>
+    </div>
+    <!-- mode switcher place end -->
+
+			
+		</div>
+		<div class="trm-menu-btn">
+			<span></span>
+		</div>
+	</div>
+</header>
+            <!-- top bar end -->
+
+            <!-- body -->
+            
+<div class="trm-content-start">
+    <!-- banner -->
+    <div class="trm-banner">
+    
+    <!-- banner cover -->
+    <img style="object-position:top;object-fit:cover;" alt="banner" class="trm-banner-cover" src="/testquantum.github.io/img/mainimages/flowerpots.jpg">
+    <!-- banner cover end -->
+    
+
+    <!-- banner content -->
+    <div class="trm-banner-content trm-overlay">
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-lg-4"></div>
+                
+                <div class="col-lg-8">
+
+                    <!-- banner title -->
+                    <div class="trm-banner-text ">
+                        <div class="trm-label trm-mb-20">
+                            NEWS LETTER
+                        </div>
+                        <h1 class="trm-mb-30 trm-hsmb-font">
+                            テスト記事 | 実験
+                        </h1>
+
+                        
+                            <ul class="trm-breadcrumbs trm-label">
+                                <li>
+                                    <a href="/testquantum.github.io/" class="trm-anima-link">Home</a>
+                                </li>
+                                <li>
+                                    <span>
+                                        2024
+                                    </span>
+                                </li>
+                            </ul>
+                        
+                    </div>
+                    <!-- banner title end -->
+
+                    <!-- scroll hint -->
+                    <span id="scroll-triger" class="trm-scroll-hint-frame">
+                        <div class="trm-scroll-hint"></div>
+                        <span class="trm-label">Scroll down</span>
+                    </span>
+                    <!-- scroll hint end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- banner content end -->
+</div>
+    <!-- banner end -->
+    <div class="container">
+        <div class="row">
+            
+                <div class="trm-page-sidebar col-lg-4 hidden-sm">
+                    <!-- main card -->
+                    <div class="trm-main-card-frame trm-sidebar">
+    <div class="trm-main-card"> 
+        <!-- card header -->
+<div class="trm-mc-header">
+    <div class="trm-avatar-frame trm-mb-20">
+        <img alt="Avatar" class="trm-avatar" src="/testquantum.github.io/img/avatar.jpg">
+    </div>
+    <h5 class="trm-name trm-mb-15">
+        
+    </h5>
+    
+</div>
+<!-- card header end -->
+        <!-- sidebar social -->
+
+<div class="trm-divider trm-mb-40 trm-mt-40"></div>
+<div class="trm-social">
+    
+        <a href="https://github.com" title="Github" rel="nofollow" target="_blank">
+            <i class="iconfont fab fa-github"></i>
+        </a>
+    
+</div>
+
+<!-- sidebar social end -->
+        <!-- info -->
+<div class="trm-divider trm-mb-40 trm-mt-40"></div>
+<ul class="trm-table trm-mb-20">
+    
+        <li>
+            <div class="trm-label">
+                Residence:
+            </div>
+            <div class="trm-label trm-label-light">
+                Mars
+            </div>
+        </li>
+    
+</ul>
+<!-- info end -->
+
+        
+    </div>
+</div>
+                    <!-- main card end -->
+                </div>
+            
+            <div class="trm-page-content col-lg-8">
+                <div id="trm-content" class="trm-content">
+                    <div class="trm-post-info row hidden-sm">
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-calendar-alt trm-icon"></i><br>
+            12/17
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-clock trm-icon"></i><br>
+            00:00
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div id="post-author" class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-user trm-icon"></i><br>
+            Quantum Core
+        </div>
+    </div>
+</div>
+<div class="trm-card ">
+    <article id="article-container" class="trm-publication">
+    <h1 id="まえがき"><a href="#まえがき" class="headerlink" title="まえがき"></a>まえがき</h1><p>最近、実験目的で新しくテスト用のサイトを立てたので、それを機に改めて「Hexoの環境構築手順を残しておこう」という感じで今回の記事に至りました。<br>　<br>今回は、Windows 11での環境構築からHexoによる静的ウェブサイトの構築と公開まで、なるべく初心に帰って説明していきたいと思います。<br>前編では登場するツールや用語の簡単な説明とインストール、後編では組み立ての説明をしていきたいと思っています。<br>　<br>なるべくここで知識が完結するように解説やツッコミを交えつつ書くので、<strong>かなり長め</strong>になります。
+　</p>
+<ul>
+<li>注意点<ul>
+<li>本記事は情報提供を目的としており、実行の際はご自身の責任にてお願いいたします。万が一の不具合や損害については、当方では責任を負いかねます。</li>
+<li>商用利用や著作物の取り扱いには十分にご注意ください。不安な場合は、公式のガイドライン、ドキュメントをチェックすることをおすすめします。</li>
+<li>今回カスタムドメインについては触れません。</li>
+<li>使用環境はWindows 11 24H2です。</li>
+<li>繰り返しになりますが、本記事は比較的初級者向けに解説やツッコミが多めです。</li>
+<li>あまり登場しませんが、補足情報としてコードエディターはVSCodeを使用しています。</li>
+</ul>
+</li>
+<li>目次<ul>
+<li><a href="#%E3%81%BE%E3%81%88%E3%81%8C%E3%81%8D">まえがき</a><ul>
+<li><a href="Hexo%EF%BC%9FGitHub-Pages%E3%81%A8%E3%81%AF%EF%BC%9F%E9%9D%99%E7%9A%84%E3%82%B5%E3%82%A4%E3%83%88%E3%81%A3%E3%81%A6%EF%BC%9F">Hexo？GitHub Pagesとは？静的サイトって？</a><ul>
+<li><a href="#%E3%81%9D%E3%82%82%E3%81%9D%E3%82%82%E9%9D%99%E7%9A%84%E3%82%B5%E3%82%A4%E3%83%88%E3%81%A8%E3%81%AF">そもそも静的サイトとは</a></li>
+<li><a href="#Github-pages%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">GitHub Pagesについて</a></li>
+<li><a href="#Nodejs%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">Node.jsについて</a></li>
+<li><a href="#Hexo%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">Hexoについて</a></li>
+<li><a href="#git%E3%81%A8GitHub%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">Git(とGitHub)について</a></li>
+<li><a href="#SSH%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6">SSHについて</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#%E7%92%B0%E5%A2%83%E6%A7%8B%E7%AF%89">環境構築</a><ul>
+<li><a href="#GitHub%E3%82%A2%E3%82%AB%E3%82%A6%E3%83%B3%E3%83%88%E9%96%8B%E8%A8%AD">GitHubアカウント開設</a></li>
+<li><a href="#Git%E3%82%92%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB">Gitをインストール</a></li>
+<li><a href="#Nodejs%E3%82%92%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB">Node.jsをインストール</a></li>
+<li><a href="#Hexo%E3%82%92%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB">Hexoをインストール</a></li>
+<li><a href="#VSCode%E3%82%92%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB">VSCodeをインストール</a></li>
+<li><a href="#ssh%E8%AA%8D%E8%A8%BC%E3%82%92%E3%81%97%E3%82%88%E3%81%86">SSH認証をしよう</a><ul>
+<li><a href="#ssh%E3%82%AD%E3%83%BC%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B">SSHキーを作成する</a></li>
+<li><a href="#GitHub%E3%81%A8%E6%8E%A5%E7%B6%9A%E3%81%97%E3%82%88%E3%81%86">GitHubと接続しよう</a></li>
+<li><a href="#%E6%8E%A5%E7%B6%9A%E3%82%92%E7%A2%BA%E8%AA%8D">接続を確認</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#Hexo%E3%81%AE%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%97">Hexoのセットアップ</a><ul>
+<li><a href="#Hexo%E3%81%AE%E5%88%9D%E5%9B%9E%E8%B5%B7%E5%8B%95">Hexoの初回起動</a><ul>
+<li><a href="#%E5%88%9D%E5%9B%9E%E8%B5%B7%E5%8B%95">初回起動</a></li>
+</ul>
+</li>
+<li><a href="#git%E3%82%92%E3%82%BB%E3%83%83%E3%83%88%E3%82%A2%E3%83%83%E3%83%97">Gitをセットアップ</a><ul>
+<li><a href="#%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%AB%E3%83%AA%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%82%92%E4%BD%9C%E3%82%8B">ローカルリポジトリを作る</a></li>
+<li><a href="#GitHub%E3%81%AB%E3%83%AA%E3%83%A2%E3%83%BC%E3%83%88%E3%83%AA%E3%83%9D%E3%82%B8%E3%83%88%E3%83%AA%E3%82%92%E4%BD%9C%E3%82%8B">GitHubにリモートリポジトリを作る</a></li>
+<li><a href="#%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%AB%E3%81%A8%E3%83%AA%E3%83%A2%E3%83%BC%E3%83%88%E3%82%92%E6%8E%A5%E7%B6%9A">ローカルとリモートを接続</a></li>
+</ul>
+</li>
+<li><a href="#Hexo%E3%81%AE%E8%A8%AD%E5%AE%9A">Hexoの設定</a><ul>
+<li><a href="#%E3%83%86%E3%83%BC%E3%83%9E%E3%82%92%E5%A4%89%E6%9B%B4%E3%81%99%E3%82%8B">テーマを変更する</a></li>
+<li><a href="#_configyml%E3%81%AE%E8%A8%AD%E5%AE%9A%E3%81%A8%E3%83%86%E3%83%BC%E3%83%9E%E3%81%AE%E9%81%A9%E7%94%A8">_config.ymlの設定とテーマの適用</a></li>
+</ul>
+</li>
+<li><a href="#Deploy%E3%81%99%E3%82%8B">Deployする</a></li>
+<li><a href="#GitHub%E3%81%A7%E6%9C%80%E5%BE%8C%E3%81%AE%E8%A8%AD%E5%AE%9A">GitHubで最後の設定</a></li>
+<li><a href="#%E5%8F%82%E8%80%83%E8%B3%87%E6%96%99">参考資料</a></li>
+<li><a href="#%E6%9C%80%E5%BE%8C%E3%81%AB">最後に</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="Hexo？GitHub-Pagesとは？静的サイトって？"><a href="#Hexo？GitHub-Pagesとは？静的サイトって？" class="headerlink" title="Hexo？GitHub Pagesとは？静的サイトって？"></a>Hexo？GitHub Pagesとは？静的サイトって？</h2><p>今回最終的に出来上がるものはWebサイトの中でも静的ウェブサイトというものになります。<br>また、それに伴って用いる要素は主に5つあります。<br>　<br><strong>1. 静的ウェブサイトホスティングサービスGitHub Pages</strong><br><strong>2. JavaScript実行環境Node.js</strong><br><strong>3. 静的サイトジェネレーターHexo</strong><br><strong>4. バージョン管理システムGit</strong><br><strong>5. 暗号化通信プロトコルSSH</strong><br><strong>+α. Visual Studio Codeなどのコードエディタ</strong><br>　<br>それぞれ説明していきます。</p>
+<h3 id="そもそも静的サイトとは"><a href="#そもそも静的サイトとは" class="headerlink" title="そもそも静的サイトとは"></a>そもそも静的サイトとは</h3><p>静的サイトとは、サーバー上のHTMLやCSS、JavaScriptをそのまま配信して表示するウェブサイトのことで、表示されるコンテンツは基本誰がいつ見ても同じです。<br>当サイトも、運営者の私がPCから見ても、利用者の方がスマホから見ても、得られる内容は同じです。<br>要するにあるものをそのまんま表示してるだけのサイトです。<br>　<br>対して動的サイトとは、アクセスするたびにサーバーがページを生成して、ユーザーごとに内容が変化するウェブサイトを指します。<br>銀行のマイページや、ユーザーの行動に基づいてコンテンツが変化するSNSのタイムラインなどが動的なものとされていますね。</p>
+<h3 id="GitHub-Pagesについて"><a href="#GitHub-Pagesについて" class="headerlink" title="GitHub Pagesについて"></a>GitHub Pagesについて</h3><p>GitHub PagesはGitHubが提供する静的ウェブサイトのホスティングサービスで、無料でGitHubのプロジェクト(リポジトリ)からWebページを立てることができるサービスです。<br>　<br>当サイトは様々な理由で現在Cloudflare Pagesを使っていますが、GitHub PagesはGitHubからそのまま設定できるので、比較的簡単です。<br>　<br>完成したサイトは<code>http(s)://&lt;username&gt;.github.io</code><br>若しくは <code>http(s)://&lt;organization&gt;.github.io</code>の形で公開されます。<br>また、カスタムドメインを適用することも可能です。自動的にHTTPSを適用してくれるので、セキュリティ面も安心です。<br>　<br>詳しくは<a target="_blank" rel="noopener" href="https://docs.github.com/ja/pages/getting-started-with-github-pages/about-github-pages">公式ドキュメント(外部リンク)</a>まで。</p>
+<h3 id="Node-jsについて"><a href="#Node-jsについて" class="headerlink" title="Node.jsについて"></a>Node.jsについて</h3><p>Node.jsはJavaScriptの実行環境です。<br>　<br>(初心者の私も本格的に勉強する前なのでなんともですが)<br>ブラウザ等のいわゆるクライアントサイドで動作するJavaScriptに加えて、サーバーサイドでも動かすことが出来る環境です。
+　</p>
+<h3 id="Hexoについて"><a href="#Hexoについて" class="headerlink" title="Hexoについて"></a>Hexoについて</h3><p>Hexoはその静的サイトの組み立てをNode.js(JavaScript)を用いて行ってくれるツールです。<br>私のようにコーディングができない人でも、比較的簡単に静的サイトを構築できる便利なやつです。<br>　<br>Markdownという人間基準で書きやすいテキストに記事を書いて、ビルドする時にNode.jsを通じてhtmlに変換して、CSSやJavaScriptなどのデザインやレイアウト情報が入ったHexoテーマと組み合わせて形にしてくれるシステムです。
+　</p>
+<h3 id="Git-とGitHub-について"><a href="#Git-とGitHub-について" class="headerlink" title="Git(とGitHub)について"></a>Git(とGitHub)について</h3><p>Gitは、プログラムのコードの変更履歴などを管理するための分散型バージョン管理システムです。<br>いつ、誰が、どのファイルの、どこを編集したのかを追跡することができ、個人だけでなく複数人での開発にも向いています。<br>　<br>それぞれの開発者がプロジェクトのクローンを手元に置いて、それぞれの変更を適宜手動で本体に届けて進めていくといった感じです。<br>プロジェクトの中で分岐させて記録したり、プロジェクトの中に別のプロジェクトを設置したり、色々できます。<br>　<br>GitHubはそのGitプロジェクト(リポジトリ)をホスティングする、開発者向けプラットフォームになります。
+　</p>
+<h3 id="SSHについて"><a href="#SSHについて" class="headerlink" title="SSHについて"></a>SSHについて</h3><p>SSHは暗号化通信プロトコルの一つです。<br>普段よく目にするHTTPSもその類なのですが、SSHはサーバー管理やファイルの転送に用いられます。<br><dev><br><img width="300" src="/testquantum.github.io/2024/12/17/chat-hexobuildup/Image1.jpg" title="Image1" class="img-left"   data-tag='post-image' onload='this.onload=null;this.style.opacity=1;' loading="lazy" onerror='this.onerror=null;this.src="/testquantum.github.io/img/404.jpg"'/><br></dev></p>
+<p>今回はローカル(PC)とリモート(GitHub)の通信に使います。<br>　<br>仕組みとしては、接続の際にPCに生成された <strong>非公開鍵(取り扱い注意)</strong> と、GitHubに渡す <strong>公開鍵</strong> を照らし合わせて繋ぎます。<br>　<br>認証の仕組み上SSHはHTTPSに比べて安全とされていて、GitHubではこちらが推奨されています。<br>デメリットとしてはセキュリティが強固な分、最初の準備が少し大変なところですね。</p>
+<h1 id="環境構築"><a href="#環境構築" class="headerlink" title="環境構築"></a>環境構築</h1><h2 id="GitHubアカウント開設"><a href="#GitHubアカウント開設" class="headerlink" title="GitHubアカウント開設"></a>GitHubアカウント開設</h2><p><a target="_blank" rel="noopener" href="https://github.com/">公式ページ(外部リンク)</a>の右上のSign upから指示に従って登録しましょう。</p>
+<h2 id="Gitをインストール"><a href="#Gitをインストール" class="headerlink" title="Gitをインストール"></a>Gitをインストール</h2><p>Gitをインストールしていきます。<br><a target="_blank" rel="noopener" href="https://git-scm.com/downloads">Git公式のダウンロードページ(外部リンク)</a>から自分の環境に合わせたものをインストールしましょう。<br>　<br>インストールの際に、このエクスプローラー上でオプションを表示するものにチェックが入っているか確認しましょう。<br>エクスプローラーの右クリックオプションで、Gitのコマンドインターフェースが開けるようになります。</p>
+<div class="image">
+  <div>
+    <ul>
+        <dd><img width="400" src="/testquantum.github.io/2024/12/17/chat-hexobuildup/Image3.jpg" title="Image3" class="img-left"  data-tag='post-image' onload='this.onload=null;this.style.opacity=1;' loading="lazy" onerror='this.onerror=null;this.src="/testquantum.github.io/img/404.jpg"'/></dd>
+        <dd><img width="300" src="/testquantum.github.io/2024/12/17/chat-hexobuildup/Image4.jpg" title="Image4" class="img-left"  data-tag='post-image' onload='this.onload=null;this.style.opacity=1;' loading="lazy" onerror='this.onerror=null;this.src="/testquantum.github.io/img/404.jpg"'/></dd>
+    </ul>
+    <style>
+        .image > div {
+          ul {
+            display: flex;
+            justify-content: center;
+            }
+        }
+    </style>
+  </div>
+</div>
+
+<p>また、Gitインストール後はWindowsのPowerShellなどでもgitコマンドを使えるようになります。<br>以下のコマンドで導入されているGitのバージョンが分かります。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git --version</span><br></pre></td></tr></table></figure>
+<p>以下の画像のような結果が表示されれば今後もWindowsのターミナルからも操作できます(今回やることではどれを使っても大丈夫です)。<br>もしGit Bash以外でgitコマンドが使えない場合は、システムの環境変数PATHに(デフォルトだと) <code>C:\Program Files\Git\cmd</code> を追加しましょう。<br><dev><br><img width="500" src="/testquantum.github.io/2024/12/17/chat-hexobuildup/Image5.jpg" title="Image5" class="img-left"   data-tag='post-image' onload='this.onload=null;this.style.opacity=1;' loading="lazy" onerror='this.onerror=null;this.src="/testquantum.github.io/img/404.jpg"'/><br></dev></p>
+<p>続いてgit内のユーザー設定を行います。<br>まず以下でユーザー名を設定します。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="string">&quot;YourName&quot;</span></span><br></pre></td></tr></table></figure>
+<p>次にメアドを設定。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.email <span class="string">&quot;youremail@example.com&quot;</span></span><br></pre></td></tr></table></figure>
+<p>最後に、以下で内容を確認します。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global --list</span><br></pre></td></tr></table></figure>
+<p>これで</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">user.name=YourName</span><br><span class="line">user.email=youremail@example.com</span><br></pre></td></tr></table></figure>
+<p>と返ってきたら成功です。<br><dev><br><img width="400" src="/testquantum.github.io/2024/12/17/chat-hexobuildup/Image6.jpg" title="Image6" class="img-left"   data-tag='post-image' onload='this.onload=null;this.style.opacity=1;' loading="lazy" onerror='this.onerror=null;this.src="/testquantum.github.io/img/404.jpg"'/><br></dev><br>(私の場合、改行について設定をしているので3行目が表示されています)<br>　<br>これらの設定は誰が編集を加えたのかを記録するために使われます。</p>
+<h2 id="Node-jsをインストール"><a href="#Node-jsをインストール" class="headerlink" title="Node.jsをインストール"></a>Node.jsをインストール</h2><p>Hexoやそのテーマ、プラグインも含めてNode.jsのパッケージとして扱われているので、ビルドだけでなくそれらをダウンロードするためにも最初に必要な作業になります。<br>　<br><a target="_blank" rel="noopener" href="https://nodejs.org/en">公式サイト(外部リンク)</a>に行ってダウンロードして指示に従ってインストールします。<br>　<br>インストールが済んだら、bashなどターミナルを開いて以下を実行して導入されているかの確認をします。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br></pre></td></tr></table></figure>
+<p>バージョンが表示されれば成功です。<br>一応、以下でNode.jsのパッケージマネージャーであるnpmというものも入っているか確認します。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm -v</span><br></pre></td></tr></table></figure>
+<p>同様にバージョンが表示されれば成功です。<br>通常Node.jsインストール時に同時にインストールされます。</p>
+<h2 id="Hexoをインストール"><a href="#Hexoをインストール" class="headerlink" title="Hexoをインストール"></a>Hexoをインストール</h2><p>HexoはNode.jsのパッケージ(npmパッケージ)の一つなので、ここに来て初めてHexoをインストールできます。<br>　<br>まず、以下を実行して本体をインストールします。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<p>完了したら、先程と同様に以下のコマンドで導入を確認します。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo version</span><br></pre></td></tr></table></figure>
+<p>記事の構成上インストールで一旦区切りますが、このままHexoのセットアップを始めたい方は、<a href="#Hexo%E3%81%AE%E5%88%9D%E5%9B%9E%E8%B5%B7%E5%8B%95">こちら</a>をクリックして進めてください。</p>
+<h2 id="VSCodeをインストール"><a href="#VSCodeをインストール" class="headerlink" title="VSCodeをインストール"></a>VSCodeをインストール</h2><p>私は友人に勧められたままVisual Studio Code(VSCode)を使っていますが、コードエディタであれば多分なんでも大丈夫です。<br>そんなに登場しないと思いますが、今回はVSCodeを前提に話を進めていきます。<br>　<br><a target="_blank" rel="noopener" href="https://code.visualstudio.com/">公式サイト(外部リンク)</a>を開いて、自分の環境に合わせたものをインストールします。<br>今開いてるディレクトリから直接VSCodeを起動できるように、画像のようなインストールオプションであることを確認しておきましょう。<br><dev><br><img width="500" src="/testquantum.github.io/2024/12/17/chat-hexobuildup/Image7.jpg" title="Image7" class="img-left"   data-tag='post-image' onload='this.onload=null;this.style.opacity=1;' loading="lazy" onerror='this.onerror=null;this.src="/testquantum.github.io/img/404.jpg"'/><br></dev></p>
+<h2 id="SSH認証をしよう"><a href="#SSH認証をしよう" class="headerlink" title="SSH認証をしよう"></a>SSH認証をしよう</h2><p>ここは自分でも最初ちんぷんかんぷんだったので、頑張って説明してみます。前編のラストスパートです。<br>　<br>まず先述の通り、これはこのPCとGitHubの通信に使う暗号化通信プロトコル(規格)です。<br>実用上の手間やセキュリティの兼ね合いからGitHubはこちらの使用を推奨しています。<br>　<br>ここではその紐づけ作業をしていきます。</p>
+<h3 id="SSHキーを作成する"><a href="#SSHキーを作成する" class="headerlink" title="SSHキーを作成する"></a>SSHキーを作成する</h3><p>以下のコマンドを実行します。<br>アドレスは識別をわかりやすくするためのオプションで、設定してもしなくても大丈夫です。<br>メールアドレスを設定しない場合はPCの名称が割り当てられます。(例:Yourname@DESKTOP)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t ed25519 -C <span class="string">&quot;your_email@example.com&quot;</span></span><br></pre></td></tr></table></figure>
+<p>そして一旦以下のような内容が表示されます。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Generating public/private ed25519 key pair.</span><br><span class="line">Enter passphrase <span class="keyword">for</span> <span class="string">&quot;your_key_name&quot;</span> (empty <span class="keyword">for</span> no passphrase): </span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>補足としてここのパスフレーズなんですが、SSHは<strong>公開鍵</strong>と<strong>非公開鍵</strong>に分かれていて、非公開鍵を見るためには設定したパスフレーズを入力する必要があります(一応キャッシュする方法もあります)。<br>そして、このパスフレーズを忘れてしまった場合新しく生成する必要があったり、入力頻度等も踏まえて天秤にかけると設定しないことも選択肢としてあるようです。</p>
+</blockquote>
+<p>話は戻りまして、今回はパスを設定しないので<strong>何も入力せず</strong>Enterを3回押して確定します。<br>　<br>生成された鍵は<code>~/.ssh/</code>に生成されます。<br>　<br>恥ずかしい話、初心者の自分はこの省略が「ど、どこ？」ってなったんですけど、<br>Windowsでは<code>C:/Users/username/.ssh/</code><br>MacやLinuxの場合は<code>/home/username/.ssh/</code>を指します。<br>様々な環境のホームディレクトリを指すわけですね。</p>
+<details><summary>余談:-t ed25519について</summary>
+生成の際の-tオプションの後にあるed25519は適当な数字ではなく、暗号化方式の名称になります。<br>
+以前ではdsa, rsaというものが使われていました。現在GitHubでは前者が推奨されています。
+</details>
+
+<h3 id="GitHubと接続しよう"><a href="#GitHubと接続しよう" class="headerlink" title="GitHubと接続しよう"></a>GitHubと接続しよう</h3><p>まず<code>~/.ssh/</code>にアクセスして<code>id_ed25519.pub</code>をテキストエディタで開いて全てコピーします(ターミナルからもできますが今回はGUIで)。<br>　<br>続いて<a target="_blank" rel="noopener" href="https://github.com/">GitHub(外部リンク)</a>に移り、右上のアカウントアイコンからSettings→Access欄のSSH and GPG keysに移動します。<br><dev><br><img width="800" src="/testquantum.github.io/2024/12/17/chat-hexobuildup/Image9-12.gif" title="Image9-12" class="img-left"   data-tag='post-image' onload='this.onload=null;this.style.opacity=1;' loading="lazy" onerror='this.onerror=null;this.src="/testquantum.github.io/img/404.jpg"'/><br></dev><br>右上のNew SSH keyをクリックして、先ほどコピーした公開鍵をここにペーストしてAdd SSH keyを押します。</p>
+<h3 id="接続を確認"><a href="#接続を確認" class="headerlink" title="接続を確認"></a>接続を確認</h3><p>再びターミナルに戻り、以下を実行します。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+<p>そして</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hi yourname! You<span class="string">&#x27;ve successfully authenticated, but GitHub does not provide shell access.</span></span><br></pre></td></tr></table></figure>
+<p>と返ってきたら成功です。<br>文の後ろは、「リポジトリへのアクセスはできても、GitHubに直接繋いでコマンドでなにかしたりはできないよ」みたいな感じです。<br>実際使い方としてはGitHubがホストしてくれているリポジトリとのやり取りなので、これが正常です。</p>
+<h1 id="Hexoのセットアップ"><a href="#Hexoのセットアップ" class="headerlink" title="Hexoのセットアップ"></a>Hexoのセットアップ</h1><p>一つ予め言っておかなければいけない事として、有志の方々によって豊富な種類が開発されているHexoテーマですが、テーマごとに仕様が異なるため、それぞれを読み込んだ以降のカスタマイズ等は自力でしていただく必要があります。<br>具体的には、基本Hexoの構造に則って作られていますが、サードパーティ製プラグインとの組み合わせやカスタムした上でのデザインの想定等がそれぞれ大きく異なります。<br>大体のテーマは公式のドキュメントが設置されているので、翻訳をかけたりしながら地道に進めていきましょう。</p>
+<h2 id="Hexoの初回起動"><a href="#Hexoの初回起動" class="headerlink" title="Hexoの初回起動"></a>Hexoの初回起動</h2><p>PC内の作業場を設置したいところにフォルダを作ります。<br>ファイルパスには日本語が含まれていないと好ましいです。<br>(例:<code>D:\hexoblog</code>)
+　</p>
+<h3 id="初回起動"><a href="#初回起動" class="headerlink" title="初回起動"></a>初回起動</h3><p>作ったフォルダに移動して、ここでセットアップをしていきます。<br>以下のコマンドを実行します。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
+<p>基本のファイルが生成されます。<br>　<br>続いて、パッケージの不足などを防ぐために以下で一旦確認させます。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure>
+<p>initで生成したpackage.jsonを参照して不足したパッケージの入手や既存のパッケージの確認をしてくれます。<br>私が以前行ったときはこれで2つパッケージを連れてきたので、一応やっておきます。<br>　<br>そして今回はGitを使ってHexoで生成したファイルをやり取りするので、それ用のプラグインも導入します。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+<p>このまま起動テストをしてみます。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+<p>sはserverを意味します。ローカルホストでHexoが立ち上がります。<br>hexoコマンドが使えない場合は、hexo-cliが導入されていないと思うので、以下で一時的にhexoを呼び出すか、</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx hexo s</span><br></pre></td></tr></table></figure>
+<p>頻繁に打つコマンドなので、以下でhexoのCLIを導入して使えるようにしておきましょう。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<p>そして以下が表示されたら、アンダーラインが引かれた <strong><a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000/</a></strong> をctrl+左クリックで開きます。<br><dev><br><img width="600" src="/testquantum.github.io/2024/12/17/chat-hexobuildup/Image13.jpg" title="Image13" class="img-left"   data-tag='post-image' onload='this.onload=null;this.style.opacity=1;' loading="lazy" onerror='this.onerror=null;this.src="/testquantum.github.io/img/404.jpg"'/><br></dev><br>デフォルトのページが開きました。<br><dev><br><img width="800" src="/testquantum.github.io/2024/12/17/chat-hexobuildup/Image14.jpg" title="Image14" class="img-left"   data-tag='post-image' onload='this.onload=null;this.style.opacity=1;' loading="lazy" onerror='this.onerror=null;this.src="/testquantum.github.io/img/404.jpg"'/><br></dev></p>
+<p>閉じるときは、ターミナル上でctrl+cを押します。</p>
+<h2 id="Gitのセットアップ"><a href="#Gitのセットアップ" class="headerlink" title="Gitのセットアップ"></a>Gitのセットアップ</h2><p>これからHexoの中身をいじっていくので、その前に変更履歴をつけるためのGitも設定していきます。<br>ここから再びHexoの設定をするまではGitの基本的な操作しかしないので、慣れている方はぱぱっとやっていただいて大丈夫です。</p>
+<h3 id="ローカルリポジトリを作る"><a href="#ローカルリポジトリを作る" class="headerlink" title="ローカルリポジトリを作る"></a>ローカルリポジトリを作る</h3><p>　<br>まず、ターミナルを開いて以下を実行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
+<p>以下が返ってきたらローカルリポジトリが出来ました。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Initialized empty Git repository <span class="keyword">in</span> /your/file/path/.git</span><br></pre></td></tr></table></figure>
+<p>そしたらHexoで生成したファイル達をGitの管理下に置きます。<br>　<br>以下を実行して追跡対象に加えます。<br>.はこのディレクトリのすべてのファイルをGitに追加するためのパス指定です。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br></pre></td></tr></table></figure>
+<p>続いて、追加したものをCommit(変更の保存)します。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m <span class="string">&quot;first commit&quot;</span></span><br></pre></td></tr></table></figure>
+<p>ここで形式的な作業ですが、GitHubの推奨に合わせてデフォルトのブランチ名をmasterからmainに変えておきます。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch -M main</span><br></pre></td></tr></table></figure>
+<p>以下でブランチを確認</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch</span><br></pre></td></tr></table></figure>
+<p>以下が返ってきたらOK。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* main</span><br></pre></td></tr></table></figure>
+
+<h3 id="GitHubにリモートリポジトリを作る"><a href="#GitHubにリモートリポジトリを作る" class="headerlink" title="GitHubにリモートリポジトリを作る"></a>GitHubにリモートリポジトリを作る</h3><p>続いて<a target="_blank" rel="noopener" href="https://github.com/"><strong>GitHub(外部リンク)</strong></a>に移りまして、リモートリポジトリを作ります。<br>ログイン状態で開いて左の<strong>New</strong>を押して、<br>　<br>表示される項目をいじっていきます。<br><dev><br><img width="800" src="/testquantum.github.io/2024/12/17/chat-hexobuildup/Image15.jpg" title="Image15" class="img-left"   data-tag='post-image' onload='this.onload=null;this.style.opacity=1;' loading="lazy" onerror='this.onerror=null;this.src="/testquantum.github.io/img/404.jpg"'/><br><img width="500" src="/testquantum.github.io/2024/12/17/chat-hexobuildup/Image15_1.jpg" title="Image15_1" class="img-left"   data-tag='post-image' onload='this.onload=null;this.style.opacity=1;' loading="lazy" onerror='this.onerror=null;this.src="/testquantum.github.io/img/404.jpg"'/><br></dev><br>まず、Repository nameは<strong>小文字で</strong>あなたの名前(もしくは組織名)+github.ioである必要があります。<br>例:<code>yourname.github.io</code><br>　<br>Descriptionはリポジトリの説明なので、メモのようにmyblogとでも書いておきましょう。なくても構いません。<br>　<br>可視性は<strong>Public</strong>を選びます。PrivateリポジトリでGitHub Pagesを使う場合は、有料のプランに加入する必要があります。<br>余談ですが、<strong>Cloudflare Pages</strong>や<strong>Netlify</strong>等のホスティングサービスを利用することでPrivateでも利用可能になります。<br>　<br>ここまで設定したら一番下のCreate repositoryを押して作成します。<br>　<br>そしたらこんな画面が出てくるので、今回はSSH接続のURLをコピーします。
+　</p>
+<h3 id="ローカルとリモートを接続"><a href="#ローカルとリモートを接続" class="headerlink" title="ローカルとリモートを接続"></a>ローカルとリモートを接続</h3><p>先ほどのHexoディレクトリに戻りまして、再びターミナルを開きます。<br>そして以下を実行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote add &lt;name&gt; &lt;url&gt;</span><br></pre></td></tr></table></figure>
+<p>nameの推奨はoriginですが、分かりやすければなんでもいいでしょう。今回はoriginで進めます。<br>urlは先程のSSH接続のURLをペーストします。<br>　<br>以下で接続を確認します。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote -v</span><br></pre></td></tr></table></figure>
+<p>これで以下が返ってきたらOKです。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">origin  git@github.com:username/repository.git (fetch)</span><br><span class="line">origin  git@github.com:username/repository.git (push)</span><br></pre></td></tr></table></figure>
+<p>最後に今あるcommitをリモートに反映するため、以下を実行します。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push -u origin main</span><br></pre></td></tr></table></figure>
+<p>GitHubのリポジトリページを更新して、変更が反映されているかも確認しましょう。<br>　<br>リポジトリページのSettingsに移り、<br><dev><br><img width="800" src="/testquantum.github.io/2024/12/17/chat-hexobuildup/Image16.jpg" title="Image16" class="img-left"   data-tag='post-image' onload='this.onload=null;this.style.opacity=1;' loading="lazy" onerror='this.onerror=null;this.src="/testquantum.github.io/img/404.jpg"'/><br></dev><br>画面左のPagesを開きます。<br><dev><br><img width="200" src="/testquantum.github.io/2024/12/17/chat-hexobuildup/Image17.jpg" title="Image17" class="img-left"   data-tag='post-image' onload='this.onload=null;this.style.opacity=1;' loading="lazy" onerror='this.onerror=null;this.src="/testquantum.github.io/img/404.jpg"'/><br></dev><br>ここに表示されるURLが最終的に使用されるURLです。<br><dev><br><img width="800" src="/testquantum.github.io/2024/12/17/chat-hexobuildup/Image18.jpg" title="Image18" class="img-left"   data-tag='post-image' onload='this.onload=null;this.style.opacity=1;' loading="lazy" onerror='this.onerror=null;this.src="/testquantum.github.io/img/404.jpg"'/><br></dev></p>
+<p>これをコピーしておきます。このページはまた戻ってくるので開いておいてください。</p>
+<h2 id="Hexoの設定"><a href="#Hexoの設定" class="headerlink" title="Hexoの設定"></a>Hexoの設定</h2><p>再びHexoディレクトリに戻りまして、configなどをいじっていきます。<br>　<br>ここからは頻繁にファイルを行ったり来たりするので、VSCodeに切り替えて大丈夫です。<br>Hexoディレクトリ上で右クリックを押して「Codeで開く」を押して開きます。<br><dev><br><img width="200" src="/testquantum.github.io/2024/12/17/chat-hexobuildup/Image19.jpg" title="Image19" class="img-left"   data-tag='post-image' onload='this.onload=null;this.style.opacity=1;' loading="lazy" onerror='this.onerror=null;this.src="/testquantum.github.io/img/404.jpg"'/><br></dev></p>
+<p>VSCode内のターミナルを使ってもらって大丈夫ですが、説明をシンプルにするためにも引き続きターミナルの操作のみを書いていきます。
+　</p>
+<h3 id="テーマを変更する"><a href="#テーマを変更する" class="headerlink" title="テーマを変更する"></a>テーマを変更する</h3><p>デフォルトではlandscapeという公式テーマが適応されていますが、これは有志によって開発されているテーマに変更が可能です。<br>　<br><a target="_blank" rel="noopener" href="https://hexo.io/themes/"><strong>ここ(外部リンク)</strong></a>から気にったテーマを選びましょう。<br>　<br>飛んだ先の説明に導入方法が書いてあると思うので、それに従って導入します。<br>冒頭の通り本体のConfigを除いて、ここからはある程度自力で設定していく必要があります。
+　</p>
+<h3 id="config-ymlの設定とテーマの適用"><a href="#config-ymlの設定とテーマの適用" class="headerlink" title="_config.ymlの設定とテーマの適用"></a>_config.ymlの設定とテーマの適用</h3><p>これはHexoの設定が入っているファイルになります。<code>hexo s</code>で確認しつつ設定していきましょう。<br>画像やConfigの変更が反映されない場合は、一旦閉じて以下を実行して生成物をリセットすることで解消します。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br></pre></td></tr></table></figure>
+<p>最低限変えるべきところを載せておきますが、詳しくは<a target="_blank" rel="noopener" href="https://hexo.io/docs/configuration"><strong>Hexoの公式ドキュメント(外部リンク)</strong></a>をご参照ください。<br>先ほどコピーしたGitHub PagesのURLもここに貼り付けます。</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Site</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">Title</span></span><br><span class="line"><span class="attr">author:</span> <span class="string">John</span> <span class="string">Doe</span></span><br><span class="line"><span class="attr">timezone:</span> <span class="string">&#x27;&#x27;</span> <span class="comment">## &#x27;Japan&#x27; に変更可能</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># URL</span></span><br><span class="line"><span class="attr">url:</span> <span class="string">https://username.github.io/yourname.github.io/</span> <span class="comment">## GitHub Pagesの設定画面を参照して変更</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Extensions</span></span><br><span class="line"><span class="attr">theme:</span> <span class="string">landscape</span> <span class="comment">## 導入したテーマのドキュメントに従って設定</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Deployment</span></span><br><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>deploy:については、以下のように変更します。</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">git@github.com:username/yourname.github.io.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">gh-pages</span></span><br></pre></td></tr></table></figure>
+<p>repo: は<strong>リポジトリのurl</strong>です。GitHub PagesのURLではないのでご注意ください。<br>今回予め設定してあるのでSSHのURLを使いますが、HTTPSでも可能です。<br>　<br>branch:について、<br>指定しているブランチは現状存在しませんが、Git Deployerのdeployコマンドを使うことでgh-pagesが存在しない場合は勝手に作ってくれます。<br>GitHub Pagesはこのブランチの内容を元にサイトをホストします。</p>
+<h2 id="Deployする"><a href="#Deployする" class="headerlink" title="Deployする"></a>Deployする</h2><p>ある程度設定が済んだら、Deploy(公開)に向けて進めていきます。<br>　<br>まず以下でサイトが正常に表示されるかを確認します。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo s</span><br></pre></td></tr></table></figure>
+<p>レイアウトやテキストが崩壊していないかなど、挙動を確認をします。<br>確認が終わったらターミナル上でctrl+cを押して閉じます。<br>　<br>そして以下を実行します。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean &amp;&amp; hexo deploy</span><br></pre></td></tr></table></figure>
+<p>GitHubを開いて、ブランチに<strong>gh-pages</strong>が追加されていることを確認しましょう。</p>
+<h2 id="GitHubで最後の設定"><a href="#GitHubで最後の設定" class="headerlink" title="GitHubで最後の設定"></a>GitHubで最後の設定</h2><p>GitHub Pagesの設定に行き、<strong>Build and deployment</strong>という項目のBranchをmainから<strong>gh-pages</strong>に変更します。<br><dev><br><img width="800" src="/testquantum.github.io/2024/12/17/chat-hexobuildup/Image20.jpg" title="Image20" class="img-left"   data-tag='post-image' onload='this.onload=null;this.style.opacity=1;' loading="lazy" onerror='this.onerror=null;this.src="/testquantum.github.io/img/404.jpg"'/><br></dev><br>Saveを押して変更を適用して数分後、参照ブランチが切り替わってサイトが公開されるはずです。<br>　<br>もしいつまで経っても更新がされない場合、もう一度以下を実行してブランチに動きがあったことを通知してあげると良いかも知れません。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
+<p>最後にリンクを開いて確認できれば成功です。<br>お疲れ様でした。</p>
+<h2 id="参考資料"><a href="#参考資料" class="headerlink" title="参考資料"></a>参考資料</h2><ul>
+<li>GitHub<br><a target="_blank" rel="noopener" href="https://docs.github.com/ja/authentication/connecting-to-github-with-ssh">SSH を使用した GitHub への接続</a></li>
+<li>Hexo<br><a target="_blank" rel="noopener" href="https://hexo.io/ja/docs/">Hexo Docs</a></li>
+<li>Qiita (@shizuma 様)<br><a target="_blank" rel="noopener" href="https://qiita.com/shizuma/items/2b2f873a0034839e47ce">GitHubでssh接続する手順<del>公開鍵・秘密鍵の生成から</del></a></li>
+</ul>
+<h2 id="最後に"><a href="#最後に" class="headerlink" title="最後に"></a>最後に</h2><p>粗く長々となってしまいましたが、これにて終了です。<br>カスタムドメインまで加えるとすごい長くなってしまうので<del>(もうすでに長いけど)</del>、今回は無しという判断になりました。<br>　<br>閲覧頂きありがとうございました。</p>
+<!-- flag of hidden posts -->
+</article>
+    
+    
+
+</div>
+<div class="trm-post-next-prev row">
+    <div class="col-lg-12">
+        <!-- title -->
+        <h5 class="trm-title-with-divider">
+            Other Articles
+            <span data-number="02"></span>
+        </h5>
+    </div>
+    
+    
+</div>
+
+    
+
+
+
+                    <div class="trm-divider footer-divider"></div>
+
+                    <!-- footer -->
+                    <footer class="trm-footer-card trm-scroll-animation">
+
+    
+
+    
+
+    
+        <div class="trm-footer-item">
+            <span>
+                Powered by <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> v7.3.0
+            </span>
+            <span class="footer-separator" data-separator=" | "></span>
+            <span> 
+                Theme - 
+                <a rel="noopener" href='https://github.com/MaLuns/hexo-theme-async' target='_blank'>Async</a>
+                v2.2.4
+            </span>
+        </div>
+      
+
+     
+
+     
+</footer>
+                    <!-- footer end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+            <!-- body end -->
+
+            
+
+            
+<div class="trm-fixed-container">
+    
+    
+        <div class="trm-fixed-btn" data-title="Read Mode" onclick="asyncFun.switchReadMode()">
+            <i class="iconfont fas fa-book-reader"></i>
+        </div>
+    
+    
+    <div id="trm-back-top" class="trm-fixed-btn" data-title="Back To Top">
+        <i class="iconfont fas fa-arrow-up"></i>
+    </div>
+</div>
+        </div>
+      </div>
+      <!-- scroll container end -->
+  </div>
+  <!-- app wrapper end -->
+
+  
+  <!-- Plugin -->
+
+
+
+
+    
+    
+<script src="https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+
+    
+
+    
+
+    
+
+    <!-- 数学公式 -->
+    
+
+    <!-- 评论插件 -->
+    
+        
+
+        
+    
+
+		
+
+
+
+
+    <!-- Service Worker -->
+    
+    <!-- baidu push -->
+    
+
+
+<script id="async-script" src="/testquantum.github.io/js/main.js?v=2.2.4"></script>
+
+<!-- CDN -->
+
+
+    
+
+    
+
+    
+
+
+
+</body>
+
+</html>
